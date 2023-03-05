@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary calculation</title>
+</head>
+<body>
+    <form class="form">
+        <label>
+            Погодинна ставка
+            <input  class="input-el" type="number" name="rate" min="0" step="0.01" placeholder="65.5">
+        </label>
+        <label>
+            1-ша зміна
+            <input class="input-el" type="number" name="first" min="0" placeholder="к-ть днів">
+        </label>
+        <label>
+            2-га зміна
+            <input class="input-el" type="number" name="second" min="0" placeholder="к-ть днів">
+        </label>
+        <label>
+            3-тя зміна
+            <input class="input-el" type="number" name="third" min="0" placeholder="к-ть днів">
+        </label>
+        <label>
+            Премія
+            <input class="input-el" type="number" name="bonus" min="0" step="0.01" placeholder="сума">
+        </label>
+        <button class="btn" type="submit">Розрахувати</button>
+    </form>
+
+    <p class="text">Твоя зарплатня: <span class="total-sum"></span></p>
+
+    <script src="./index.js"></script>
+</body>
+</html>
