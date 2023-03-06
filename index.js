@@ -46,5 +46,5 @@ function salary(first, second, third, bonus, rate) {
 
   const pureSum = totalSum - totalTax;
   console.log(pureSum);
-  return pureSum;
+  return +pureSum.toFixed(2);
 }
