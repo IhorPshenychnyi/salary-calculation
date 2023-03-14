@@ -29,10 +29,16 @@
             Премія
             <input class="input bonus" type="number" name="bonus" min="0" step="0.01" placeholder="сума">
         </label>
+        <label class="lable checkbox">
+            <input type="checkbox" name="imprest" value="imprest" checked>
+            Аванс
+        </label>
+        <p class="text">Для прорахунку <strong>авансу</strong> постав галочку в цьому полі,  для прорахунку <strong>зарплати</strong> - галочку прибери </p>
+
         <button class="btn" type="submit">Розрахувати</button>
     </form>
 
-    <p class="text">Твоя зарплатня: <span class="total-sum"></span></p>
+    <p class="total-sum"></p>
 
     <script src="./index.js"></script>
 </body>

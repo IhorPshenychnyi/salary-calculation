@@ -1,27 +1,27 @@
-const form = document.querySelector(".form");
-const sum = document.querySelector(".total-sum");
+const form = document.querySelector('.form');
+const sum = document.querySelector('.total-sum');
 
-form.addEventListener("submit", handleSubmit);
+form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(evt) {
   evt.preventDefault();
 
   const {
-    elements: { first, second, third, bonus, rate },
+    elements: { first, second, third, bonus, rate, imprest },
   } = evt.currentTarget;
 
   sum.innerHTML = salary(
     +first.value,
     +second.value,
     +third.value,
+    +rate.value,
     +bonus.value,
-    +rate.value
+    imprest.checked,
   );
-
   //   evt.currentTarget.reset();
 }
 
-function salary(first, second, third, bonus, rate) {
+function salary(first, second, third, rate, bonus, imprest) {
   const wh = 8;
   const tax = 0.195;
   const eveningPercentage = 0.2;
@@ -41,10 +41,15 @@ function salary(first, second, third, bonus, rate) {
   const sum = fs * first + ss * second + ns * third;
   const totalBonus = totalDays * bonus;
 
+  const imprestSum = sum - sum * tax;
+
   const totalSum = sum + totalBonus + loyaltyBonus;
   const totalTax = totalSum * tax;
 
   const pureSum = totalSum - totalTax;
-  console.log(pureSum);
-  return +pureSum.toFixed(2);
+
+  if (imprest) {
+    return `Аванс: ${imprestSum.toFixed(2)}`;
+  }
+  return `Зарплатня: ${pureSum.toFixed(2)}`;
 }
